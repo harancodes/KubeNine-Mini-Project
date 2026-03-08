@@ -33,7 +33,7 @@ module "eks" {
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.public_subnets
 
-  # 🔥 ADD THESE
+  
   cluster_endpoint_public_access  = true
   cluster_endpoint_private_access = true
 
@@ -44,5 +44,5 @@ module "eks" {
       max_size       = 2
       desired_size   = 1
     }
-  }
+  } 
 }

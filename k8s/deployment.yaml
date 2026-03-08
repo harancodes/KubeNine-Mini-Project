@@ -17,15 +17,21 @@ spec:
           image: IMAGE_PLACEHOLDER
           ports:
             - containerPort: 5000
----
+--- # to determine as a different component
 apiVersion: v1
 kind: Service
 metadata:
   name: flask-app-svc
 spec:
-  type: LoadBalancer
+  type: LoadBalancer #here we will mention the types of Services and Cluster Ip is the default
   selector:
-    app: flask-app
+    app: flask-app   #here is where the services will send all the request
   ports:
-    - port: 80
-      targetPort: 5000
+    - port: 80 #service port 
+      targetPort: 5000 #pod port 
+      #nodePort : 300076 --> used for external forces to commincate with the node -> used for testing 30000-32767
+      # Cluster Ip just for communicating inside the cluster
+
+
+
+# Load Balancer for both internal and etxernal communication 
